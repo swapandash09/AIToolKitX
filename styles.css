@@ -1,0 +1,190 @@
+/* Font and global styles */
+@font-face {
+  font-family: 'Inter';
+  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0d0d1f;
+  color: #ffffff;
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease;
+}
+
+/* Hero section with electrified particle background */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Neon-flicker text effect for headings */
+.text-glow {
+  text-shadow: 0 0 8px #00f0ff, 0 0 16px #ff007a, 0 0 24px #7b00ff;
+  animation: neon-flicker 3s ease-in-out infinite;
+}
+@keyframes neon-flicker {
+  0%, 100% { text-shadow: 0 0 8px #00f0ff, 0 0 16px #ff007a, 0 0 24px #7b00ff; }
+  50% { text-shadow: 0 0 12px #00f0ff, 0 0 20px #ff007a, 0 0 32px #7b00ff; }
+  60% { text-shadow: 0 0 6px #00f0ff, 0 0 12px #ff007a, 0 0 18px #7b00ff; }
+}
+
+/* Fade-in animation for sections */
+.animate-fade-in {
+  animation: fadeIn 1.2s ease-out forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Electrified holographic effect for tool cards */
+.holographic {
+  background: linear-gradient(45deg, rgba(0, 240, 255, 0.15), rgba(255, 0, 122, 0.15), rgba(123, 0, 255, 0.15));
+  border: 2px solid transparent;
+  border-image: linear-gradient(45deg, #00f0ff, #39ff14, #ff007a, #7b00ff) 1;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 16px rgba(0, 240, 255, 0.3);
+  animation: pulse-glow 2s ease-in-out infinite;
+  will-change: transform, box-shadow;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-image 0.4s ease;
+}
+.holographic:hover {
+  transform: translateY(-12px) scale(1.06) rotate(3deg);
+  box-shadow: 0 16px 48px rgba(0, 240, 255, 0.6), 0 16px 48px rgba(255, 0, 122, 0.6);
+  border-image: linear-gradient(45deg, #39ff14, #ff007a, #7b00ff, #00f0ff) 1;
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 16px rgba(0, 240, 255, 0.3); }
+  50% { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 24px rgba(0, 240, 255, 0.5); }
+}
+
+/* Button ripple and charge effect */
+.ripple {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #00f0ff, #ff007a);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+.ripple:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 24px rgba(0, 240, 255, 0.8), 0 0 24px rgba(255, 0, 122, 0.8);
+}
+.ripple:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+.ripple:hover:after {
+  width: 400px;
+  height: 400px;
+}
+.ripple:focus {
+  outline: 3px solid #39ff14;
+  outline-offset: 3px;
+}
+
+/* Search bar with neon glow */
+.search-bar {
+  transition: all 0.3s ease;
+}
+.search-bar:focus-within {
+  box-shadow: 0 0 24px rgba(0, 240, 255, 0.9), 0 0 24px rgba(57, 255, 20, 0.9);
+}
+.search-bar input {
+  background: #1a1a2e;
+  border-color: #00f0ff;
+}
+.search-bar input:focus {
+  border-color: #ff007a;
+  box-shadow: 0 0 12px rgba(255, 0, 122, 0.8);
+}
+.search-icon:hover {
+  transform: scale(1.4) rotate(20deg);
+  stroke: #39ff14;
+  transition: transform 0.3s ease, stroke 0.3s ease;
+}
+
+/* Floating Action Button (FAB) */
+#fab {
+  background: linear-gradient(45deg, #00f0ff, #39ff14);
+  transition: all 0.4s ease;
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.6);
+}
+#fab:hover {
+  transform: rotate(180deg) scale(1.3);
+  box-shadow: 0 0 32px rgba(0, 240, 255, 1), 0 0 32px rgba(57, 255, 20, 1);
+}
+
+/* Enhanced parallax effect */
+.parallax {
+  position: relative;
+  transform: translateZ(0);
+  transition: transform 0.3s ease;
+}
+.parallax::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, rgba(13, 13, 31, 0), rgba(13, 13, 31, 1));
+  z-index: -1;
+}
+
+/* Typography enhancements */
+h1, h2, h3 {
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.5rem; }
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .tool-card {
+    padding: 0.75rem;
+  }
+  .ripple {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+  .search-bar input {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+  #fab {
+    bottom: 0.75rem;
+    right: 0.75rem;
+    padding: 0.5rem;
+  }
+  h1 { font-size: 2.25rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.25rem; }
+}
+
+/* Accessibility: Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .holographic, .ripple, .search-icon, .text-glow, .animate-fade-in, #fab, .parallax {
+    animation: none;
+    transition: none;
+  }
+  .holographic:hover {
+    transform: none;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  }
+  #fab:hover {
+    transform: none;
+    box-shadow: 0 0 16px rgba(0, 240, 255, 0.6);
+  }
+}
